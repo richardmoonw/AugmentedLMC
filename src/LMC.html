@@ -24,9 +24,10 @@
 
         <br>
         <div class="row">
-            <div style="background-color: rgb(185, 164, 252); padding: 10px; border-radius:10px; border-color: black;" class="col-md-3">
+            <div style="border-top-left-radius:10px; border-bottom-left-radius: 10px;" class="col-md-3 mailboxes">
+                <br><br>
                 <script>
-                    for (var i = 0; i < 21; i++) {
+                    for (var i = 0; i < 20; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
                                             <div class='col-md-8'><input class='form-control' id='input" + i + "'\
@@ -35,9 +36,10 @@
                     }
                 </script>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mailboxes">
+                <h3 style="text-align: center;">CODE SEGMENT</h3>
                 <script>
-                    for (var i = 21; i < 42; i++) {
+                    for (var i = 20; i < 40; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
                                             <div class='col-md-8'><input class='form-control' id='input" + i + "'\
@@ -46,10 +48,51 @@
                     }
                 </script>
             </div>
+            <div style="border-top-right-radius:10px; border-bottom-right-radius: 10px;" class="col-md-3 mailboxes">
+                <br><br>
+                <script>
+                    for (var i = 41; i < 61; i++) {
+                        document.write("<div class='row'> \
+                                            <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
+                                            <div class='col-md-8'><input class='form-control' id='input" + i + "'\
+                                            type='text'></div>" + "\
+                                        </div>");
+                    }
+                </script>
+            </div>
+            <div style="border-radius:10px;" class="col-md-2">
+                    <h3>DATA</h3>
+                    <div class="data">
+                    <script>
+                        for (var i = 61; i < 71; i++) {
+                            document.write("<div class='row'> \
+                                                <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
+                                                <div class='col-md-8'><input class='form-control' id='input" + i + "'\
+                                                type='text'></div>" + "\
+                                            </div>");
+                        }
+                    </script>
+                    </div>
+                </div>
         </div>
 
 
     </div>
+
+    <style>
+    .mailboxes{
+        background-color: rgb(185, 164, 252);
+        padding:10px;
+        text-align: center; 
+    }
+
+    .data{
+        margin-left: 30px;
+        background-color: rgb(255, 96, 96);
+        padding:10px; 
+        text-align: center;
+    }
+    </style>
 
     <script src="LMC.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>
