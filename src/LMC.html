@@ -24,7 +24,7 @@
 
         <br>
         <div class="row">
-            <div style="border-top-left-radius:10px; border-bottom-left-radius: 10px;" class="col-md-3 mailboxes">
+            <div style="border-top-left-radius:10px; border-bottom-left-radius: 10px;" class="col-md-2 mailboxes">
                 <br><br>
                 <script>
                     for (var i = 0; i < 20; i++) {
@@ -36,8 +36,8 @@
                     }
                 </script>
             </div>
-            <div class="col-md-3 mailboxes">
-                <h3 style="text-align: center;">CODE SEGMENT</h3>
+            <div class="col-md-2 mailboxes">
+                <h3 style="text-align: center;">CODE</h3>
                 <script>
                     for (var i = 20; i < 40; i++) {
                         document.write("<div class='row'> \
@@ -48,7 +48,7 @@
                     }
                 </script>
             </div>
-            <div style="border-top-right-radius:10px; border-bottom-right-radius: 10px;" class="col-md-3 mailboxes">
+            <div style="border-top-right-radius:10px; border-bottom-right-radius: 10px;" class="col-md-2 mailboxes">
                 <br><br>
                 <script>
                     for (var i = 41; i < 61; i++) {
@@ -60,20 +60,65 @@
                     }
                 </script>
             </div>
-            <div style="border-radius:10px;" class="col-md-2">
-                    <h3>DATA</h3>
-                    <div class="data">
+            <div style="margin-left: 5px;" class="col-md-2">
+                <div class="row data" style="border-radius:10px;">
+                    <h3 style="margin-left: 0%">INTERRUPT</h3>
                     <script>
-                        for (var i = 61; i < 71; i++) {
+                        for (var i = 61; i < 81; i++) {
                             document.write("<div class='row'> \
-                                                <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                                <div class='col-md-8'><input class='form-control' id='input" + i + "'\
+                                                <div class='col-md-3'><p><b>" + i + "</b></p></div>" + "\
+                                                <div class='col-md-9'><input class='form-control' id='input" + i + "'\
                                                 type='text'></div>" + "\
                                             </div>");
                         }
                     </script>
-                    </div>
+                </div> 
+            </div>
+            <div style="margin-left: 5px;" class="col-md-2">
+                <div class="row data" style="border-radius:10px; background-color: rgba(192, 245, 187, 0.753);">
+                    <h3 style="margin-left: 25%">DATA</h3>
+                    <script>
+                        for (var i = 81; i < 100; i++) {
+                            document.write("<div class='row'> \
+                                                <div class='col-md-3'><p><b>" + i + "</b></p></div>" + "\
+                                                <div class='col-md-9'><input class='form-control' id='input" + i + "'\
+                                                type='text'></div>" + "\
+                                            </div>");
+                        }
+                    </script>
+                </div> 
+            </div>
+
+            <div class="col-md-1">
+                <label class="par" for="input71"><b>Calculator:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input71' type='text'>
+    
+                <br>
+
+                <label class="par" for="input72"><b>Input:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input72' type='text'>
+                <br>
+
+                <label class="par" for="input73"><b>Output:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input73' type='text' readonly>
+                <br>
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="possitive">
+                    <label class="custom-control-label par" for="possitive"><b>Possitive</b></label>
                 </div>
+                <br> 
+
+                <div class="custom-control custom-switch">
+                    <input onClick="check()" type="checkbox" class="custom-control-input" id="zero">
+                    <label class="custom-control-label par" for="zero"><b>Zero</b></label>
+                </div>
+                <br>
+
+                <label class="par" for="input72"><b>PC:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input72' type='text' readonly>
+                <br>
+            </div>
         </div>
 
 
@@ -87,10 +132,14 @@
     }
 
     .data{
-        margin-left: 30px;
+        margin-left: 10px;
         background-color: rgb(255, 96, 96);
         padding:10px; 
-        text-align: center;
+    }
+
+    .par{
+        font-size: 20px;
+        margin-left: 10px;
     }
     </style>
 
