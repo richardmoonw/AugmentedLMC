@@ -100,13 +100,13 @@
                 <br>
 
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="possitive">
+                    <input type="checkbox" class="custom-control-input" id="possitive" disabled="disabled">
                     <label class="custom-control-label par" for="possitive"><b>Possitive</b></label>
                 </div>
                 <br> 
 
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="zero">
+                    <input type="checkbox" class="custom-control-input" id="zero" disabled="disabled">
                     <label class="custom-control-label par" for="zero"><b>Zero</b></label>
                 </div>
                 <br>
@@ -121,10 +121,16 @@
                 <button onClick="execute()" style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-success">Final result</button>
                 <br><br>
 
-                <button style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-warning">Reset</button>
+                <button onClick="reset()" style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-warning">Reset</button>
                 <br><br>
 
                 <button style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-danger">Stop</button>
+                <br><br>
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="interrupt">
+                    <label class="custom-control-label par" for="interrupt"><b>Interrupt</b></label>
+                </div>
             </div>
         </div>
 
