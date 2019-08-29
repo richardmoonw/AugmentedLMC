@@ -30,7 +30,7 @@
                     for (var i = 0; i < 20; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                            <div class='col-md-8'><input class='form-control' id='input" + i + "'\
+                                            <div class='col-md-8'><input value='000' class='form-control' id='input" + i + "'\
                                             type='text'></div>" + "\
                                         </div>");
                     }
@@ -42,7 +42,7 @@
                     for (var i = 20; i < 40; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                            <div class='col-md-8'><input class='form-control' id='input" + i + "'\
+                                            <div class='col-md-8'><input value='000' class='form-control' id='input" + i + "'\
                                             type='text'></div>" + "\
                                         </div>");
                     }
@@ -51,10 +51,10 @@
             <div style="border-top-right-radius:10px; border-bottom-right-radius: 10px;" class="col-md-2 mailboxes">
                 <br><br>
                 <script>
-                    for (var i = 41; i < 61; i++) {
+                    for (var i = 40; i < 60; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                            <div class='col-md-8'><input class='form-control' id='input" + i + "'\
+                                            <div class='col-md-8'><input value='000' class='form-control' id='input" + i + "'\
                                             type='text'></div>" + "\
                                         </div>");
                     }
@@ -64,10 +64,10 @@
                 <div class="row data" style="border-radius:10px;">
                     <h3 style="margin-left: 0%">INTERRUPT</h3>
                     <script>
-                        for (var i = 61; i < 81; i++) {
+                        for (var i = 60; i < 80; i++) {
                             document.write("<div class='row'> \
                                                 <div class='col-md-3'><p><b>" + i + "</b></p></div>" + "\
-                                                <div class='col-md-9'><input class='form-control' id='input" + i + "'\
+                                                <div class='col-md-9'><input value='000' class='form-control' id='input" + i + "'\
                                                 type='text'></div>" + "\
                                             </div>");
                         }
@@ -78,10 +78,10 @@
                 <div class="row data" style="border-radius:10px; background-color: rgba(192, 245, 187, 0.753);">
                     <h3 style="margin-left: 25%">DATA</h3>
                     <script>
-                        for (var i = 81; i < 100; i++) {
+                        for (var i = 80; i < 100; i++) {
                             document.write("<div class='row'> \
                                                 <div class='col-md-3'><p><b>" + i + "</b></p></div>" + "\
-                                                <div class='col-md-9'><input class='form-control' id='input" + i + "'\
+                                                <div class='col-md-9'><input value='000' class='form-control' id='input" + i + "'\
                                                 type='text'></div>" + "\
                                             </div>");
                         }
@@ -90,17 +90,13 @@
             </div>
 
             <div class="col-md-1">
-                <label class="par" for="input71"><b>Calculator:</b></label>
-                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input71' type='text'>
+                <label class="par" for="input100"><b>Calculator:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input100' type='text'>
     
                 <br>
 
-                <label class="par" for="input72"><b>Input:</b></label>
-                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input72' type='text'>
-                <br>
-
-                <label class="par" for="input73"><b>Output:</b></label>
-                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input73' type='text' readonly>
+                <label class="par" for="input102"><b>Output:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input102' type='text' readonly>
                 <br>
 
                 <div class="custom-control custom-switch">
@@ -110,14 +106,25 @@
                 <br> 
 
                 <div class="custom-control custom-switch">
-                    <input onClick="check()" type="checkbox" class="custom-control-input" id="zero">
+                    <input type="checkbox" class="custom-control-input" id="zero">
                     <label class="custom-control-label par" for="zero"><b>Zero</b></label>
                 </div>
                 <br>
 
-                <label class="par" for="input72"><b>PC:</b></label>
-                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input72' type='text' readonly>
+                <label class="par" for="input103"><b>PC:</b></label>
+                <input style="margin-left:10px; min-width: 125px;" class='form-control' id='input103' type='text' readonly>
                 <br>
+
+                <button onClick="step_by_step()" style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-dark">Step by step</button>
+                <br><br>
+
+                <button onClick="execute()" style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-success">Final result</button>
+                <br><br>
+
+                <button style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-warning">Reset</button>
+                <br><br>
+
+                <button style="margin-left: 10px; min-width: 125px;" type="button" class="btn btn-danger">Stop</button>
             </div>
         </div>
 
