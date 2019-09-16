@@ -18,6 +18,9 @@ function reset(){
     document.getElementById("input100").value = "000";
     document.getElementById("input102").value = "000";
     document.getElementById("input103").value = "000";
+    step_mailbox = "";
+    step_counter = 0;
+    temp_counter = 0;
 }
 
 var step_calculator = document.getElementById("input100");
