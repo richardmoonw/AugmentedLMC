@@ -1,5 +1,5 @@
 // Restringir inputs a 3 numeros y ninguna letra.
-// STA 
+
 var boxes = [];
 var flag = 0;
 
@@ -28,6 +28,8 @@ var step_instruction = "1";
 var step_mailbox = "";
 var step_counter = 0;
 var temp_counter = 0;
+var temp_calculator;
+var temp_output;
 
 
 function step_by_step(){
@@ -35,6 +37,8 @@ function step_by_step(){
         temp_counter = step_counter;
         step_counter = 60;
         step_interrupt.checked = false;
+        temp_calculator = step_calculator.value;
+        temp_output = step_output.value;
     }
 
     if(flag == 0){
@@ -71,6 +75,21 @@ function step_by_step(){
                 boxes[parseInt(step_mailbox)] = step_calculator.value;
                 document.getElementById("input"+step_mailbox).value = boxes[parseInt(step_mailbox)];
                 break;
+            case "4":
+                var digits =  calculator.value.length;
+                if(digits == 1){
+                    boxes[parseInt(mailbox)] = calculator.value[0];
+                    document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                }
+                else if(digits == 2){
+                    boxes[parseInt(mailbox)] = calculator.value[0] + calculator.value[1];
+                    document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                }
+                else if(digits == 3){
+                    boxes[parseInt(mailbox)] = calculator.value[1] + calculator.value[2];
+                    document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                }
+                break;
             case "5":
                 step_calculator.value = boxes[parseInt(step_mailbox)];
                 break;
@@ -102,6 +121,8 @@ function step_by_step(){
 
                 else if(step_instruction[1] == "9"){
                     step_counter = temp_counter;
+                    step_calculator.value = temp_calculator;
+                    step_output.value = temp_output;
                 }
                 break;
                 
@@ -151,6 +172,21 @@ function execute(){
             case "3":
                 boxes[parseInt(mailbox)] = calculator.value;
                 document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                break;
+            case "4":
+                var digits =  calculator.value.length;
+                if(digits == 1){
+                    boxes[parseInt(mailbox)] = calculator.value[0];
+                    document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                }
+                else if(digits == 2){
+                    boxes[parseInt(mailbox)] = calculator.value[0] + calculator.value[1];
+                    document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                }
+                else if(digits == 3){
+                    boxes[parseInt(mailbox)] = calculator.value[1] + calculator.value[2];
+                    document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
+                }
                 break;
             case "5":
                 calculator.value = boxes[parseInt(mailbox)];
