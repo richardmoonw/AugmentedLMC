@@ -25,7 +25,9 @@ var temp_mailbox;
 
 function reset(){
     step_counter = 0;
-    step_pc.value = "000"
+    step_pc.value = "000";
+    step_instruction = "111";
+    flag = 0;
 }
 
 function step_by_step(){
@@ -45,6 +47,7 @@ function step_by_step(){
         flag = 1;
     }
 
+    console.log("Instruction " + step_instruction[0])
     if(step_instruction[0] != "0"){
         step_pc.value = step_counter;
         step_instruction = document.getElementById("input" + step_counter).value;
