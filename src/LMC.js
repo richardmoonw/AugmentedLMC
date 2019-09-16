@@ -42,9 +42,10 @@ function step_by_step(){
     if(step_interrupt.checked == true){
         temp_counter = step_counter;
         step_counter = 60;
-        step_interrupt.checked = false;
         step_interrupt.disabled = true;
+        step_interrupt.checked = false;
         temp_calculator = step_calculator.value;
+        console.log(temp_calculator);
         temp_output = step_output.value;
     }
 
@@ -86,15 +87,18 @@ function step_by_step(){
             case "4":
                 var digits =  step_calculator.value.length;
                 if(digits == 1){
-                    boxes[parseInt(step_mailbox)] = step_calculator.value[0];
+                    prev_value = boxes[parseInt(step_mailbox)][0] + boxes[parseInt(step_mailbox)][1];
+                    boxes[parseInt(step_mailbox)] = prev_value + step_calculator.value[0];
                     document.getElementById("input"+step_mailbox).value = boxes[parseInt(step_mailbox)];
                 }
                 else if(digits == 2){
-                    boxes[parseInt(step_mailbox)] = step_calculator.value[0] + step_calculator.value[1];
+                    prev_value = boxes[parseInt(step_mailbox)][0];
+                    boxes[parseInt(step_mailbox)] = prev_value + step_calculator.value[0] + step_calculator.value[1];
                     document.getElementById("input"+step_mailbox).value = boxes[parseInt(step_mailbox)];
                 }
                 else if(digits == 3){
-                    boxes[parseInt(step_mailbox)] = step_calculator.value[1] + step_calculator.value[2];
+                    prev_value = boxes[parseInt(step_mailbox)][0];
+                    boxes[parseInt(step_mailbox)] = prev_value + step_calculator.value[1] + step_calculator.value[2];
                     document.getElementById("input"+step_mailbox).value = boxes[parseInt(step_mailbox)];
                 }
                 break;
@@ -115,7 +119,7 @@ function step_by_step(){
                 }
                 break;
             case "9":
-                if (step_instruction[2] == "1"){
+                if (step_instruction[1] == "0" && step_instruction[2] == "1"){
                     var value = prompt("Enter a number:");
                     if(value == null){
                         value = 0;
@@ -135,11 +139,11 @@ function step_by_step(){
                     step_calculator.value = value;
                 }
 
-                else if(step_instruction[2] == "2"){
+                else if(step_instruction[1] == "0" && step_instruction[2] == "2"){
                     step_output.value = step_calculator.value;
                 }
 
-                else if(step_instruction[1] == "9"){
+                else if(step_instruction[1] == "9" && step_instruction[1] == "9"){
                     step_counter = temp_counter;
                     step_calculator.value = temp_calculator;
                     step_output.value = temp_output;
@@ -197,15 +201,18 @@ function execute(){
             case "4":
                 var digits =  calculator.value.length;
                 if(digits == 1){
-                    boxes[parseInt(mailbox)] = calculator.value[0];
+                    prev_value = boxes[parseInt(mailbox)][0] + boxes[parseInt(mailbox)][1];
+                    boxes[parseInt(mailbox)] = prev_value + calculator.value[0];
                     document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
                 }
                 else if(digits == 2){
-                    boxes[parseInt(mailbox)] = calculator.value[0] + calculator.value[1];
+                    prev_value = boxes[parseInt(mailbox)][0];
+                    boxes[parseInt(mailbox)] = prev_value + calculator.value[0] + calculator.value[1];
                     document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
                 }
                 else if(digits == 3){
-                    boxes[parseInt(mailbox)] = calculator.value[1] + calculator.value[2];
+                    prev_value = boxes[parseInt(mailbox)][0];
+                    boxes[parseInt(mailbox)] = prev_value + calculator.value[1] + calculator.value[2];
                     document.getElementById("input"+mailbox).value = boxes[parseInt(mailbox)];
                 }
                 break;
@@ -226,7 +233,7 @@ function execute(){
                 }
                 break;
             case "9":
-                if (instruction[2] == "1"){
+                if (instruction[1] == "0" && instruction[2] == "1"){
                     var value = prompt("Enter a number:");
                     if(value == null){
                         value = 0;
@@ -234,7 +241,7 @@ function execute(){
                     calculator.value = value;
                 }
 
-                else if(instruction[2] == "2"){
+                else if(instruction[1] == "0" && instruction[2] == "2"){
                     output.value = calculator.value;
                 }
                 break;
