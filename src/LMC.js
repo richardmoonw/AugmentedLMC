@@ -21,21 +21,11 @@ var step_counter = 0;
 var temp_counter = 0;
 var temp_calculator;
 var temp_output;
+var temp_mailbox;
 
 function reset(){
-    for(var i=0; i<100; i++){
-        document.getElementById("input" + i).value = "000";
-    }
-    fill_data();
-    document.getElementById("input100").value = "000";
-    document.getElementById("input102").value = "000";
-    document.getElementById("input103").value = "000";
-    check();
-    check2();
-    step_mailbox = "";
-    step_instruction = "";
-    step_mailbox = "";
     step_counter = 0;
+    step_pc.value = "000"
 }
 
 function step_by_step(){
@@ -45,8 +35,8 @@ function step_by_step(){
         step_interrupt.disabled = true;
         step_interrupt.checked = false;
         temp_calculator = step_calculator.value;
-        console.log(temp_calculator);
         temp_output = step_output.value;
+        temp_mailbox = step_mailbox;
     }
 
     // If there is the first time to run the function initialize the array.
@@ -115,7 +105,7 @@ function step_by_step(){
                 break;
             case "8":
                 if(document.getElementById("possitive").checked){
-                    step__counter = parseInt(step_mailbox) - 1;
+                    step_counter = parseInt(step_mailbox) - 1;
                 }
                 break;
             case "9":
@@ -143,11 +133,23 @@ function step_by_step(){
                     step_output.value = step_calculator.value;
                 }
 
-                else if(step_instruction[1] == "9" && step_instruction[1] == "9"){
-                    step_counter = temp_counter;
+                else if(step_instruction[1] == "9" && step_instruction[2] == "9"){
+                    step_counter = temp_counter - 1 ;
                     step_calculator.value = temp_calculator;
                     step_output.value = temp_output;
                     step_interrupt.disabled = false;
+                    step_mailbox = temp_mailbox;
+                    if(step_calculator.value == 0){
+                        check();
+                        check2();
+                    }
+                    else if(step_calculator.value >= 0){
+                        check();
+                    }
+                    else if(step_calculator.value < 0){
+                        uncheck();
+                        uncheck2();
+                    }
                 }
                 break;
                 
