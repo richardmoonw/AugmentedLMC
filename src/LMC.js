@@ -11,29 +11,32 @@ function fill_data(){
     
 }
 
-function reset(){
-    for(var i=0; i<100; i++){
-        document.getElementById("input" + i).value = "000";
-    }
-    document.getElementById("input100").value = "000";
-    document.getElementById("input102").value = "000";
-    document.getElementById("input103").value = "000";
-    step_mailbox = "";
-    step_counter = 0;
-    temp_counter = 0;
-}
-
 var step_calculator = document.getElementById("input100");
 var step_pc = document.getElementById("input103");
 var step_output = document.getElementById("input102");
 var step_interrupt = document.getElementById("interrupt");
-var step_instruction = "1";
+var step_instruction = "";
 var step_mailbox = "";
 var step_counter = 0;
 var temp_counter = 0;
 var temp_calculator;
 var temp_output;
 
+function reset(){
+    for(var i=0; i<100; i++){
+        document.getElementById("input" + i).value = "000";
+    }
+    fill_data();
+    document.getElementById("input100").value = "000";
+    document.getElementById("input102").value = "000";
+    document.getElementById("input103").value = "000";
+    check();
+    check2();
+    step_mailbox = "";
+    step_instruction = "";
+    step_mailbox = "";
+    step_counter = 0;
+}
 
 function step_by_step(){
     if(step_interrupt.checked == true){
@@ -45,6 +48,7 @@ function step_by_step(){
         temp_output = step_output.value;
     }
 
+    // If there is the first time to run the function initialize the array.
     if(flag == 0){
         fill_data();
         flag = 1;
@@ -116,6 +120,18 @@ function step_by_step(){
                     if(value == null){
                         value = 0;
                     }
+                    else if(value > 0){
+                        check();
+                        uncheck2();
+                    }
+                    else if(value == 0){
+                        check();
+                        check2();
+                    }
+                    else if(value < 0){
+                        uncheck();
+                        uncheck2();
+                    }
                     step_calculator.value = value;
                 }
 
@@ -155,13 +171,13 @@ function execute(){
         instruction = document.getElementById("input" + program_counter).value;
         mailbox = instruction[1] + instruction[2];
 
-        if(calculator.value >= 0 && step_calculator.value != ""){
+        if(calculator.value >= 0 && calculator.value != ""){
             check();
         }
         else {
             uncheck();
         }
-        if(calculator.value == 0 && step_calculator.value != ""){
+        if(calculator.value == 0 && calculator.value != ""){
             check2();
         }
         else {
