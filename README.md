@@ -6,7 +6,7 @@ For running this program you need a browser.
 
 Folder Contents
 ----------------
-AugmentedLMC
+AugmentedLMC\n
      |
      |- README.md
      |- src
