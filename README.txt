@@ -1,4 +1,4 @@
-Hi, this is a Super Saiyajin version of the Little Man Computer, this dopcument will help you to understand its functionalitie and to know the minimum requirements to run it. Let's begin.
+Hi, this is a Super Saiyajin version of the Little Man Computer, this document will help you to understand its functionalitie and to know the minimum requirements to run it. Let's begin.
 
 Minimum requirements:
 For running this program you need a browser.
