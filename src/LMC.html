@@ -30,7 +30,7 @@
                     for (var i = 0; i < 20; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                            <div class='col-md-8'><input maxlength='4' value='000' class='form-control' id='input" + i + "'\
+                                            <div class='col-md-8'><input onkeypress='return restrictAlphabets(event)' maxlength='4' value='000' class='form-control' id='input" + i + "'\
                                             type='text'></div>" + "\
                                         </div>");
                     }
@@ -42,7 +42,7 @@
                     for (var i = 20; i < 40; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                            <div class='col-md-8'><input value='000' class='form-control' id='input" + i + "'\
+                                            <div class='col-md-8'><input onkeypress='return restrictAlphabets(event)' value='000' class='form-control' id='input" + i + "'\
                                             type='text'></div>" + "\
                                         </div>");
                     }
@@ -54,7 +54,7 @@
                     for (var i = 40; i < 60; i++) {
                         document.write("<div class='row'> \
                                             <div class='col-md-4'><p><b>" + i + "</b></p></div>" + "\
-                                            <div class='col-md-8'><input value='000' class='form-control' id='input" + i + "'\
+                                            <div class='col-md-8'><input onkeypress='return restrictAlphabets(event)' value='000' class='form-control' id='input" + i + "'\
                                             type='text'></div>" + "\
                                         </div>");
                     }
@@ -67,7 +67,7 @@
                         for (var i = 60; i < 80; i++) {
                             document.write("<div class='row'> \
                                                 <div class='col-md-3'><p><b>" + i + "</b></p></div>" + "\
-                                                <div class='col-md-9'><input value='000' class='form-control' id='input" + i + "'\
+                                                <div class='col-md-9'><input onkeypress='return restrictAlphabets(event)' value='000' class='form-control' id='input" + i + "'\
                                                 type='text'></div>" + "\
                                             </div>");
                         }
@@ -81,7 +81,7 @@
                         for (var i = 80; i < 100; i++) {
                             document.write("<div class='row'> \
                                                 <div class='col-md-3'><p><b>" + i + "</b></p></div>" + "\
-                                                <div class='col-md-9'><input value='000' class='form-control' id='input" + i + "'\
+                                                <div class='col-md-9'><input onkeypress='return restrictAlphabets(event)' value='000' class='form-control' id='input" + i + "'\
                                                 type='text'></div>" + "\
                                             </div>");
                         }
@@ -155,6 +155,18 @@
         margin-left: 10px;
     }
     </style>
+
+    <script type="text/javascript">
+    /*code: 48-57 Numbers
+      37-40: Arrow keys, 46 - Delete key*/
+        function restrictAlphabets(e){
+            var x=e.which||e.keycode;
+            if((x>=48 && x<=57) || (x>=35 && x<=40)|| x==46)
+                return true;
+            else
+                return false;
+        }
+    </script>
 
     <script src="LMC.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.js"></script>

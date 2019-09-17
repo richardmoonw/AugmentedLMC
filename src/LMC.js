@@ -1,28 +1,42 @@
-// Restringir inputs a 3 numeros y ninguna letra.
-// Bloquear interrupt trigger
+// Values of the mailboxes
 var boxes = [];
+
+// Flag that indicates if it is the first time that the user clicks step by step
 var flag = 0;
 
+// Transfer the values of the inputs (HTML) to an array (JavaScript)
 function fill_data(){
-
     for(var i=0; i<100; i++){
         boxes[i] = document.getElementById("input" + i).value;
     }
     
 }
 
+//Global variables used for the step by step process
+// Input for the step by step calculator
 var step_calculator = document.getElementById("input100");
+// Input for the step by step program counter
 var step_pc = document.getElementById("input103");
+// Input for the step by step output 
 var step_output = document.getElementById("input102");
+// Input for the interrupt handler
 var step_interrupt = document.getElementById("interrupt");
+// Variable for the instruction fetched
 var step_instruction = "";
+// Variable for the address portion of the mailbox
 var step_mailbox = "";
+// Variable for the step by step program counter
 var step_counter = 0;
+// Variable to store the step by step program counter before an interrupt
 var temp_counter = 0;
+// Variable to store the step by step calculator value before an interrupt
 var temp_calculator;
+// Variable to store the step by step output value before an interrupt
 var temp_output;
+// Variable to store the step by step mailbox value before an interrupt
 var temp_mailbox;
 
+// Reset the step by step program counter to 0 and turn off the flag to let execute again the step by step function for first time
 function reset(){
     step_counter = 0;
     step_pc.value = "000";
@@ -30,6 +44,7 @@ function reset(){
     flag = 0;
 }
 
+// This is in charge of executing the program step by step
 function step_by_step(){
     if(step_interrupt.checked == true){
         temp_counter = step_counter;
@@ -164,7 +179,7 @@ function step_by_step(){
 
 }
 
-
+// This is in charge of executing the full program
 function execute(){
     fill_data();
     let calculator = document.getElementById("input100");
@@ -259,18 +274,22 @@ function execute(){
     }
 }
 
+// Check the possitive flag
 function check() {
     document.getElementById("possitive").checked = true;
 }
 
+// Uncheck the possitive flag
 function uncheck(){
     document.getElementById("possitive").checked = false;
 }
 
+// Check the zero flag
 function check2(){
     document.getElementById("zero").checked = true;
 }
 
+// Uncheck the zero flag
 function uncheck2(){
     document.getElementById("zero").checked = false;
 }
