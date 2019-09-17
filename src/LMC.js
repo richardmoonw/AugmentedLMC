@@ -41,6 +41,7 @@ function reset(){
     step_counter = 0;
     step_pc.value = "000";
     step_instruction = "111";
+    step_interrupt.disabled = false;
     flag = 0;
 }
 
